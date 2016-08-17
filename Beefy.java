@@ -31,6 +31,8 @@ public class Beefy {
 	//Beefy constructor
 	public Beefy()
 	{
+		
+		//TODO check sizes are valid
 		xSize = 5;
 		ySize = 5;
 		onTable=false;
