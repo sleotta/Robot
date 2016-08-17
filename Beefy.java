@@ -7,8 +7,19 @@ public class Beefy {
 		NORTH, EAST, SOUTH, WEST
 	}
 	
+	//table size in X and Y dimensions
+	private int xSize;
+	private int ySize;
 	//Enumerated type for the direction Beefy is facing
 	private Direction facing;
+	
+	/*
+	 * Position indexing will be done on a scale of 0 to Size-1
+	 * (0,0) is South West Corner
+	 * (Size-1,0) is South East most Corner
+	 * (0, Size-1) is North West most Corner
+	 */
+	
 	//X position of Beefy
 	private int xPos;
 	//Y position of Beefy
@@ -20,7 +31,22 @@ public class Beefy {
 	//Beefy constructor
 	public Beefy()
 	{
+		xSize = 5;
+		ySize = 5;
 		onTable=false;
+	}
+	
+	//Secondary constructor which allows setting the table size. 
+	public Beefy(int x, int y)
+	{
+		xSize = x;
+		ySize = y; 
+		onTable=false;
+	}
+	
+	public boolean isOnTable()
+	{
+		return onTable;
 	}
 	
 	//Place method 
