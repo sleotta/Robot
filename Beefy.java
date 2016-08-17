@@ -44,34 +44,57 @@ public class Beefy {
 		onTable=false;
 	}
 	
+	//method to move beefy
+	public boolean Move()
+	{
+		//TODO implement
+		return false;
+	}
+	
+	//returns true if beefy is on table, false otherwise
 	public boolean isOnTable()
 	{
 		return onTable;
 	}
 	
-	//Place method 
-	public void place(int x, int y, Direction f)
+	//Place method returns true on success, false otherwise
+	public boolean place(int x, int y, Direction f)
 	{
 		
-		//TODO check for valid
+		if(x < 0 || x >=xSize)
+		{
+			return false;
+		}
+		if(y < 0 || y >=ySize)
+		{
+			return false;
+		}
+		
+		onTable = true;
+		xPos = x;
+		yPos = y;
+		facing = f;
 		//TODO do placing
+		return true;
 		
 	}
 	
 	/*A function to rotate 90 degrees, direction
 	is based on value given to clockwise*/
-	public void rotate(boolean clockwise)
+	public boolean rotate(boolean clockwise)
 	{
 		//TODO check if on table
 		//TODO implement
+		return false;
 	}
 	
 	
 	//Reporting of position to System.out
-	public void report()
+	public boolean report()
 	{
 		//TODO check if on table
 		//TODO implement
+		return false;
 	}
 	
 
