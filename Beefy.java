@@ -4,7 +4,7 @@
 public class Beefy {
 	public enum Direction
 	{
-		NORTH, EAST, SOUTH, WEST
+		NORTH, EAST, SOUTH, WEST			
 	}
 	
 	//table size in X and Y dimensions
@@ -81,13 +81,37 @@ public class Beefy {
 		
 	}
 	
+	
+	
 	/*A function to rotate 90 degrees, direction
 	is based on value given to clockwise*/
 	public boolean rotate(boolean clockwise)
 	{
-		//TODO check if on table
-		//TODO implement
-		return false;
+		int turn = 0;
+		if(clockwise)
+		{
+			turn = 1;
+		} else {
+			/*adding this is effectively equivalent to going back one, since the
+			 * incrementing code uses modulusS
+			 */
+			turn =  Direction.values().length-1;
+		}
+		int next = (this.facing.ordinal() + turn) % Direction.values().length;
+		switch(next){
+			case 0: this.facing = Direction.NORTH;
+					return true;
+			case 1: this.facing = Direction.EAST;
+					return true;
+			case 2: this.facing = Direction.SOUTH;
+					return true;
+			case 3: this.facing = Direction.WEST;
+					return true;
+			default: return false;
+			
+		}
+		
+	
 	}
 	
 	
@@ -98,6 +122,21 @@ public class Beefy {
 		//TODO implement
 		return false;
 	}
+	
+	//Below here are getter methods used mainly for testing
+	public Direction getFacing()
+	{
+		return this.facing;
+	}
+	public int getX()
+	{
+		return this.xPos;
+	}
+	public int getY()
+	{
+		return this.yPos;
+	}
+	
 	
 
 }
